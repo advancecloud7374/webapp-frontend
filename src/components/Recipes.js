@@ -20,8 +20,10 @@ export default class Recipes extends Component {
   }
 
   componentDidMount(){  
-    axios.get(process.env.REACT_APP_BACKEND_URL+"/v1/allrecipes")
+    // axios.get(process.env.REACT_APP_BACKEND_URL+"/v1/allrecipes")
+      axios.get("http://a795265c1b7bc4451abb0d259e24cf93-731820842.us-east-1.elb.amazonaws.com:8080/v1/allrecipes")
       .then((response) => {
+          console.log(response)
         this.setState({recipes: response.data,
                        selectedIndex: 0 
         });
@@ -84,25 +86,25 @@ export default class Recipes extends Component {
               <Typography variant="body1" color="textSecondary" component="p"><p><b>Cooking Time:</b> {recipes[selectedIndex].cook_time_in_min} minutes</p></Typography>
               <Typography variant="body1" color="textSecondary" component="p"><p><b>No. of Servings:</b> {recipes[selectedIndex].servings}</p></Typography>
 
-                  <div><Typography variant="body1" color="textSecondary" component="p"><p><b>Ingredients:</b></p></Typography>
-                    
-                      {
-                        recipes[selectedIndex].ingredients.map((ingredient) =>{
-                          return (<li>{ingredient}</li>);
-                        })
-                      }
-                  </div>
+                  {/*<div><Typography variant="body1" color="textSecondary" component="p"><p><b>Ingredients:</b></p></Typography>*/}
+                  {/*  */}
+                  {/*    {*/}
+                  {/*      recipes[selectedIndex].ingredients.map((ingredient) =>{*/}
+                  {/*        return (<li>{ingredient}</li>);*/}
+                  {/*      })*/}
+                  {/*    }*/}
+                  {/*</div>*/}
                   
 
-                  <div><Typography variant="body1" color="textSecondary" component="p"><p><b>Steps</b></p></Typography>
+                  {/*<div><Typography variant="body1" color="textSecondary" component="p"><p><b>Steps</b></p></Typography>*/}
                   
                   
-                      {
-                        recipes[selectedIndex].steps.map((step) =>{
-                          return (<li>{step.items}</li>);
-                        })
-                      }
-                    </div>
+                  {/*    {*/}
+                  {/*      recipes[selectedIndex].steps.map((step) =>{*/}
+                  {/*        return (<li>{step.items}</li>);*/}
+                  {/*      })*/}
+                  {/*    }*/}
+                  {/*  </div>*/}
                     
                   </div><Typography variant="body1" color="textSecondary" component="p"><p><b>Nutrition</b></p></Typography>
                   <div>
